@@ -11,4 +11,4 @@ package-lock.json
 server.log
 config.json
 bundle.js
-keys.js
+dev.js
