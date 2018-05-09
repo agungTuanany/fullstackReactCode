@@ -9,6 +9,12 @@ passport.serializeUser((user, done) => { // user: is instance user model from Do
     done(null, user.id);// 'user.id' refer to '_id'  mongodb id collection
 });
 
+passport.deserializeUser((id, done) => {
+    User.findById(id).then(user => {
+        done(null, user);
+    });
+});
+
 passport.use(
     new GoogleStrategy({
             clientID: keys.googleClientID,
