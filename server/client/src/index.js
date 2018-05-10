@@ -1,6 +1,25 @@
+/**
+@param Provider is react component that knows how to rechanges from our redux store,
+ anytime that redux store get some new state produce of it,
+ the provider will inform all the child compoent.
+
+@param store={store} is give as the ability to access data inside our application
+ from deeply nested component by reaching directly to 'redux store'
+
+The part IDEA behind redux is some arbitrary components can access the global data or
+ global state inside our application by reaching directly to 'redux store'.
+*/
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 
 import App from './components/App';
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+// make a redux store
+const store = createStore(() => [], {}, applyMiddleware());
+
+ReactDOM.render(
+    <Provider store={store}><App /></Provider>,
+    document.querySelector('#root'));
