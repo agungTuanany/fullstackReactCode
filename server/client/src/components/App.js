@@ -18,6 +18,8 @@ Essentially no big different with componentDidMount() and componentWillMout() fr
 
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 //dumy commponets
 import Header from './Header';
@@ -29,9 +31,8 @@ const Landing = () => <h2> Landing </h2>
 class App extends Component {
     // add on lifecycle method for fetch the current user
     componentDidMount() {
-
+        this.props.fetchUser();
     }
-
 
     render() {
         return (
@@ -49,4 +50,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default connect(null, actions) (App);

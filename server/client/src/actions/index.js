@@ -20,7 +20,7 @@ Dispacth-function:
 import axios from 'axios';
 import { FETCH_USER } from './types';
 
-const fethUser = () => {
+export const fetchUser = () => {
     return function(dispacth) {
         axios
             .get('/api/current_user')
