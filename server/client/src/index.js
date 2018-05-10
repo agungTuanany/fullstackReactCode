@@ -11,8 +11,8 @@ The part IDEA behind redux is some arbitrary components can access the global da
 
  @param materialzieCSS we import it after installing with npm. We not use
  relative path name ",/", whenever webpack parse anything import like this
- if you do not put relative path webpack automatically assume that you try
- to specified npm module when module was installed on module derictory
+ if you do not put relative path, webpack automatically assume that you try
+ to specified npm module when module was installed on module directory
 */
 import 'materialize-css/dist/css/materialize.min.css'
 import React from 'react';

@@ -16,16 +16,20 @@ Dispacth-function:
 */
 
 // this index.js for action creator React-Components
-
 import axios from 'axios';
 import { FETCH_USER } from './types';
 
 export const fetchUser =  () => async dispacth => {
-    const res =await axios.get('/api/current_user');
-
-    dispacth({ type: FETCH_USER, payload: res.data });
+    try {
+        const res =await axios.get('/api/current_user');
+        dispacth({ type: FETCH_USER, payload: res.data });
+    } catch (e){
+        console.log(e);
+    }
 };
 
 // asyc-await V.2
 // export const fetchUser =  () => async dispacth =>
 //     dispacth({type: FETCH_USER, payload: await axios.get('/api/current_user')});
+
+
