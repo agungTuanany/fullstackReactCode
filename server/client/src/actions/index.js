@@ -23,7 +23,7 @@ import { FETCH_USER } from './types';
 export const fetchUser =  () => async dispacth => {
     const res =await axios.get('/api/current_user');
 
-    dispacth({type: FETCH_USER, payload: res});
+    dispacth({ type: FETCH_USER, payload: res.data });
 };
 
 // asyc-await V.2
