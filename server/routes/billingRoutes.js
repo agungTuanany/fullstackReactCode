@@ -9,6 +9,12 @@ module.exports = app => {
             description: '$5 for 5 credit',
             source: req.body.id
         });
-        console.log(charge);
+        //update user Model
+        // the user in 'req.user' and 'const user' is represent the same user in separate object in memory
+        // whenever we save the user model by convention we make reference to the copy of the model / copy of the user we just get back from Document(database)
+        req.user.credits += 5;
+        const user = await req.user.save();
+
+        res.send(user);
     });
 };
