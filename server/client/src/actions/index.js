@@ -25,7 +25,7 @@ import { FETCH_USER } from './types';
 
 export const fetchUser =  () => async dispacth => {
     try {
-        const res =await axios.get('/api/current_user');
+        const res = await axios.get('/api/current_user');
 
         dispacth({ type: FETCH_USER, payload: res.data });
     } catch (e){
