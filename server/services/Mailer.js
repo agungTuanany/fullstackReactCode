@@ -19,12 +19,11 @@ class Mailer extends helper.Mail {
         this.recipients = this.formatAddresses(recipients);
 
         this.addContent(this.body);
-        // enabling click tracking
         this.addClickTracking();
         this.addRecipients();
     }
 
-    formatAddresses (recipients) {
+    formatAddresses(recipients) {
         return recipients.map(({ email }) => {
             return new helper.Email(email);
         });
@@ -36,6 +35,15 @@ class Mailer extends helper.Mail {
 
         trackingSettings.setClickTracking(clickTracking);
         this.addTrackingSettings(trackingSettings);
+    }
+
+    addRecipients() {
+        const personalize = new helper.Personalization();
+
+        this.recipients.forEach(recipient => {
+            personalize.addTo(recipient);
+        });
+        this.addPersonalization(personalize);
     }
 
 };
