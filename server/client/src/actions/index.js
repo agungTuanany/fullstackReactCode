@@ -35,7 +35,7 @@ export const fetchUser =  () => async dispacth => {
 
 export const handleToken = (token) => async dispacth => {
     try {
-        const res = await axios.post('/api/stripe, token');
+        const res = await axios.post('/api/stripe', token);
 
         dispacth({ type: FETCH_USER, payload: res.data });
     } catch (e) {
