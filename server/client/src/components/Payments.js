@@ -15,6 +15,7 @@ class Payments extends Component {
             >
             <button className="btn">
                 Add Credits
+                <i className="material-icons left"style={{margin:'-15px 0'}}>add</i>
             </button>
             </StripeCheckout>
         );
