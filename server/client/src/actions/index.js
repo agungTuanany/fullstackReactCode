@@ -43,8 +43,8 @@ export const handleToken = (token) => async dispacth => {
     }
 }
 
-// asyc-await V.2
-// export const fetchUser =  () => async dispacth =>
-//     dispacth({type: FETCH_USER, payload: await axios.get('/api/current_user')});
+export const submitSurvey = values => {
+    return { type: 'submit_survey' }
+}
 
 
