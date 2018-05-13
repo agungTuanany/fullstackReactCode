@@ -9,6 +9,8 @@ for creating component-level-state, with babel plugin that allow us
  initialize the state with slightly different passion.
 
 @param onSurveySubmit: is a callback, was called if SurveyForm is successfully submitted on
+
+@param onCancel: is a callback, was called in SurveyFormReview if user want to make changes
 */
 // SurveyNew shows SurveyForm and SurveyFormReview
 import React, { Component } from 'react';
@@ -20,7 +22,10 @@ class SurveyNew extends Component {
 
     renderContent() {
         if (this.state.showFormReview) {
-            return <SurveyFormReview />
+            return
+            <SurveyFormReview
+                onCancel={() => this.setState({ showFormReview: false })}
+            />
         }
 
         return <SurveyForm
