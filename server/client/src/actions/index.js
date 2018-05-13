@@ -33,7 +33,7 @@ export const fetchUser =  () => async dispacth => {
     }
 };
 
-export const handleToken = (token) => async dispacth => {
+export const handleToken = token => async dispacth => {
     try {
         const res = await axios.post('/api/stripe', token);
 
@@ -43,8 +43,13 @@ export const handleToken = (token) => async dispacth => {
     }
 }
 
-export const submitSurvey = values => {
-    return { type: 'submit_survey' }
+export const submitSurvey = (values, history) => async dispacth => {
+    try {
+        const res = await axios.post('/api/surveys', values);
+
+        history.push('/surveys');
+        dispacth({ type: FETCH_USER, payload: res.data });
+    } catch (e) {
+        console.log(e)
+    }
 }
-
-
