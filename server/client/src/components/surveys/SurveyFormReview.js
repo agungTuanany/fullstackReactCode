@@ -46,4 +46,4 @@ function mapStateToProps(state) {
     return { formValues: state.form.surveyForm.values };
 };
 
-export default connect(mapStateToProps, actions)(withRoouter(SurveyFormReview));
+export default connect(mapStateToProps, actions)(withRouter(SurveyFormReview));
