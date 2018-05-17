@@ -21,7 +21,7 @@ Why using the same dispatch({}) can we DRY it?
 
 // this index.js for action creator React-Components
 import axios from 'axios';
-import { FETCH_USER } from './types';
+import { FETCH_USER, FETCH_SURVEYS } from './types';
 
 export const fetchUser =  () => async dispacth => {
     try {
@@ -41,7 +41,7 @@ export const handleToken = token => async dispacth => {
     } catch (e) {
         console.log(e);
     }
-}
+};
 
 export const submitSurvey = (values, history) => async dispacth => {
     try {
@@ -52,4 +52,10 @@ export const submitSurvey = (values, history) => async dispacth => {
     } catch (e) {
         console.log(e)
     }
-}
+};
+
+export const fetchSurveys = () => async dispacth => {
+    const res = await axios.get('/api/surveys');
+
+    dispacth({ type: FETCH_SURVEYS, payload: res.data });
+};
