@@ -6,7 +6,7 @@
 # to run, type ./sendgrid_webhook.sh in the terminal
 
 function localtunnel {
-lt -s lairjgliargli --port 5000
+lt -s lkiowwsaew --port 5000
 }
 
 until localtunnel; do
