@@ -13,11 +13,11 @@ for creating component-level-state, with babel plugin that allow us
 @param onCancel: is a callback, was called in SurveyFormReview if user want to make changes
 */
 // SurveyNew shows SurveyForm and SurveyFormReview
-import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
+import React, { Component } from "react";
+import { reduxForm } from "redux-form";
 
-import SurveyForm from './SurveyForm';
-import SurveyFormReview from './SurveyFormReview';
+import SurveyForm from "./SurveyForm";
+import SurveyFormReview from "./SurveyFormReview";
 
 class SurveyNew extends Component {
     state = { showFormReview: false };
@@ -26,7 +26,7 @@ class SurveyNew extends Component {
         if (this.state.showFormReview) {
             return (
                 <SurveyFormReview
-                onCancel={() => this.setState({ showFormReview: false })}
+                    onCancel={() => this.setState({ showFormReview: false })}
                 />
             );
         }
@@ -39,14 +39,10 @@ class SurveyNew extends Component {
     }
 
     render() {
-        return (
-            <div>
-                {this.renderContent()}
-            </div>
-        );
+        return <div>{this.renderContent()}</div>;
     }
 }
 
 export default reduxForm({
-    form: 'surveyForm'
+    form: "surveyForm"
 })(SurveyNew);

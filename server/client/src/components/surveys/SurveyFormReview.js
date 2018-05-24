@@ -1,20 +1,18 @@
 // SurveyFormReview to shows users their form input for review
-import _ from 'lodash';
-import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import _ from "lodash";
+import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-import formFields from './formFields';
-import * as actions from '../../actions/';
+import formFields from "./formFields";
+import * as actions from "../../actions/";
 
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
     const reviewFields = _.map(formFields, ({ name, label }) => {
         return (
             <div key={name}>
                 <label>{label}</label>
-                <div>
-                    {formValues[name]}
-                </div>
+                <div>{formValues[name]}</div>
             </div>
         );
     });
@@ -30,20 +28,19 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
                 Back
             </button>
             <button
-            onClick={() => submitSurvey(formValues, history)}
-            className="green btn-flat right"
+                onClick={() => submitSurvey(formValues, history)}
+                className="green btn-flat right"
             >
                 Send Survey
                 <i className="material-icons white-text right">email</i>
             </button>
         </div>
-
     );
 };
 
 function mapStateToProps(state) {
     // console.log(state);
     return { formValues: state.form.surveyForm.values };
-};
+}
 
 export default connect(mapStateToProps, actions)(withRouter(SurveyFormReview));

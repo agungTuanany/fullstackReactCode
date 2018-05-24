@@ -14,24 +14,26 @@ The part IDEA behind redux is some arbitrary components can access the global da
  if you do not put relative path, webpack automatically assume that you try
  to specified npm module when module was installed on module directory
 */
-import 'materialize-css/dist/css/materialize.min.css'
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import reduxThunk from 'redux-thunk';
+import "materialize-css/dist/css/materialize.min.css";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import reduxThunk from "redux-thunk";
 
-import App from './components/App';
-import reducers from './reducers';
+import App from "./components/App";
+import reducers from "./reducers";
 
 // for test purpose only
-import axios from 'axios';
+import axios from "axios";
 window.axios = axios;
 
 // make a redux store
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
-    <Provider store={store}><App /></Provider>,
-    document.querySelector('#root')
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.querySelector("#root")
 );

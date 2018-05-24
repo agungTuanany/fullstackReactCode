@@ -1,5 +1,5 @@
-const cookieSession = require('cookie-session');
-const keys = require('../config/keys');
+const cookieSession = require("cookie-session");
+const keys = require("../config/keys");
 
 module.exports = app => {
     app.use(
